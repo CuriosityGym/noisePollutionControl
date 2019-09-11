@@ -19,15 +19,13 @@ void setup() {
   pinMode(buzzer2, OUTPUT);
   pinMode(buzzer3, OUTPUT);
   pinMode(buzzer4, OUTPUT);
+  delay(5000);
     Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-    WiFi.begin(ssid, password);
-    Serial.println();
+  Serial.println();
     Serial.print("Wait for WiFi");
 WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password);
-    Serial.println();
-    Serial.print("Wait for WiFi");
+    
 
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
@@ -35,6 +33,7 @@ WiFi.mode(WIFI_STA);
     }
     Serial.println("");
     Serial.println("WiFi connected");
+  
     Serial.println("IP address: " + WiFi.localIP().toString());
   Udp.begin(UDPPort);
   Serial.println();
